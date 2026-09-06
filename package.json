@@ -1,0 +1,24 @@
+{
+  "name": "engine-contract",
+  "version": "1.0.0",
+  "description": "Host-facing study EngineAPI types and ENGINE_API_VERSION",
+  "type": "module",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js",
+      "default": "./dist/index.js"
+    }
+  },
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "check": "tsc --noEmit -p tsconfig.json",
+    "build": "tsup && tsc -p tsconfig.build.json"
+  },
+  "devDependencies": {
+    "tsup": "^8.5.1",
+    "typescript": "^7.0.2"
+  }
+}
