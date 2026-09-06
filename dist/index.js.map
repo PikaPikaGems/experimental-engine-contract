@@ -1,1 +1,1 @@
-{"version":3,"sources":["../src/version.ts"],"sourcesContent":["/** Host↔engine JS API version. Bump on breaking EngineAPI shape changes. */\nexport const ENGINE_API_VERSION = 2;\n"],"mappings":";AACO,IAAM,qBAAqB;","names":[]}
+{"version":3,"sources":["../src/version.ts"],"sourcesContent":["/** Host↔engine JS API version. Bump on breaking EngineAPI shape changes. */\nexport const ENGINE_API_VERSION = 3;\n"],"mappings":";AACO,IAAM,qBAAqB;","names":[]}

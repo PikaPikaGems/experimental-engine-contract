@@ -67,32 +67,32 @@ export type GradeOutcome = {
 export type ReviewsApi = {
     settings: {
         watchCurrent(): QueryStore<ReviewSettings>;
-        update(settings: ReviewSettings): Promise<Result<ReviewSettings>>;
+        update(settings: ReviewSettings): Promise<Result<ReviewSettings, ReviewError>>;
         defaultSettings: ReviewSettings;
     };
     pile: {
         add(input: {
             kanji: Kanji;
             word: string;
-        }): Promise<Result<ReviewPileItemView>>;
-        remove(kanji: Kanji): Promise<Result<void>>;
+        }): Promise<Result<ReviewPileItemView, ReviewError>>;
+        remove(kanji: Kanji): Promise<Result<void, ReviewError>>;
         watch(kanji: Kanji): QueryStore<ReviewPileItemView | null>;
         watchAll(): QueryStore<ReviewPileItemView[]>;
     };
-    getDueCount(cardType: CardType): Promise<Result<number>>;
+    getDueCount(cardType: CardType): Promise<Result<number, ReviewError>>;
     getDue(input: {
         cardType: CardType;
         limit: number;
-    }): Promise<Result<DueCard[]>>;
+    }): Promise<Result<DueCard[], ReviewError>>;
     beginReview(input: {
         kanji: Kanji;
         cardType: CardType;
         expectedVersion: string;
-    }): Promise<Result<ActiveReview>>;
+    }): Promise<Result<ActiveReview, ReviewError>>;
     grade(input: {
         handleId: string;
         rating: FsrsRating;
-    }): Promise<Result<GradeOutcome>>;
-    cancel(handleId: string): Promise<Result<void>>;
+    }): Promise<Result<GradeOutcome, ReviewError>>;
+    cancel(handleId: string): Promise<Result<void, ReviewError>>;
 };
 //# sourceMappingURL=reviews.types.d.ts.map
