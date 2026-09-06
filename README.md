@@ -28,7 +28,9 @@ the contract, rebuild and commit `dist/`, then bump that `#<sha>` and re-install
 pnpm install
 pnpm run check
 pnpm build
+pnpm verify
 ```
 
 Commit the updated `dist/` (`index.js` and `.d.ts`) with the source change.
-`dist/` is not gitignored.
+`dist/` is not gitignored. `pnpm verify` rebuilds it and fails if the committed
+output is stale.
