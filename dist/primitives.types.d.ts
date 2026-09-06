@@ -83,7 +83,7 @@ export type AuthStatus = {
     reviewSettings: ReviewSettingsCompatibility;
 };
 export type PremiumEntitlement = {
-    product: "premium_subscription";
+    product: string;
     status: "active" | "lapsed" | "none";
     grantedAt?: UTCTimestamp;
     expiresAt?: UTCTimestamp;

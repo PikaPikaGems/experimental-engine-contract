@@ -15,7 +15,8 @@
   ],
   "scripts": {
     "check": "tsc --noEmit -p tsconfig.json",
-    "build": "tsup && tsc -p tsconfig.build.json"
+    "build": "tsup && tsc -p tsconfig.build.json",
+    "verify": "pnpm run check && pnpm run build && git diff --exit-code -- dist"
   },
   "devDependencies": {
     "tsup": "^8.5.1",
