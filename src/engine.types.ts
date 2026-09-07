@@ -54,7 +54,7 @@ export type AuthApi = {
   verifyPin(input: VerifyPinInput): Promise<Result<UserAppInfoResponse>>;
   logout(input?: LogoutInput): Promise<Result<void>>;
   me(): Promise<Result<UserAppInfoResponse>>;
-  /** Signed out is ready `{ status: "no_active_session" }`, not a QueryStore failure. */
+  /** Signed out and local-cache recovery are ready values, not QueryStore failures. */
   watchStatus(): QueryStore<AuthStatus>;
 };
 

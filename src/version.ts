@@ -1,2 +1,2 @@
 /** Host↔engine JS API version. Bump on breaking EngineAPI shape changes. */
-export const ENGINE_API_VERSION = 3;
+export const ENGINE_API_VERSION = 4;
