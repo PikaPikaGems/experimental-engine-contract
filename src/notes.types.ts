@@ -1,4 +1,4 @@
-import type { Kanji, Result, StudyError, UnixMs } from "./primitives.types";
+import type { Kanji, Result, StudyError, UTCTimestamp } from "./primitives.types";
 import type { QueryStore } from "./query.types";
 
 export type NoteError =
@@ -10,7 +10,7 @@ export type KanjiNoteView = {
   kanji: Kanji;
   content: string;
   hasMergedEdit: boolean;
-  mergedAt?: UnixMs;
+  mergedAt?: UTCTimestamp;
   status: "pending-sync" | "synced";
 };
 
