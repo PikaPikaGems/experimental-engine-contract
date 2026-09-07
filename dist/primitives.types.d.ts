@@ -58,13 +58,15 @@ export type StudyError = {
     code: "no_active_session";
 } | {
     code: "premium_lapsed";
+} | {
+    code: "cache_rebuilding";
 };
 /** Standing write-gate for `auth.watchStatus()`. */
 export type WriteAccess = {
     allowed: true;
 } | {
     allowed: false;
-    reason: "outbox_full" | "outbox_stale" | "premium_lapsed" | "storage_quota";
+    reason: "outbox_full" | "outbox_stale" | "premium_lapsed" | "storage_quota" | "cache_rebuilding";
 };
 export type ReviewSettingsCompatibility = {
     status: "compatible";

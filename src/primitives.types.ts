@@ -49,7 +49,8 @@ export type StudyError =
   | { code: "outbox_stale" }
   | { code: "stale_session" }
   | { code: "no_active_session" }
-  | { code: "premium_lapsed" };
+  | { code: "premium_lapsed" }
+  | { code: "cache_rebuilding" };
 
 /** Standing write-gate for `auth.watchStatus()`. */
 export type WriteAccess =
@@ -57,7 +58,11 @@ export type WriteAccess =
   | {
       allowed: false;
       reason:
-        "outbox_full" | "outbox_stale" | "premium_lapsed" | "storage_quota";
+        | "outbox_full"
+        | "outbox_stale"
+        | "premium_lapsed"
+        | "storage_quota"
+        | "cache_rebuilding";
     };
 
 export type ReviewSettingsCompatibility =
