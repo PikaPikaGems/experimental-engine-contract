@@ -92,16 +92,16 @@ export type AggregatedSummary = {
 };
 
 export type FirstAttemptsSummary = {
-  cakeDay: LocalDate;
+  cakeDay?: LocalDate;
   practice: {
-    speedKatakana: LocalDate;
-    speaking: LocalDate;
-    reading: LocalDate;
-    writing: LocalDate;
+    speedKatakana?: LocalDate;
+    speaking?: LocalDate;
+    reading?: LocalDate;
+    writing?: LocalDate;
   };
   review: {
-    writing: LocalDate;
-    reading: LocalDate;
+    writing?: LocalDate;
+    reading?: LocalDate;
   };
 };
 
