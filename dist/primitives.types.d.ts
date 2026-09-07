@@ -76,6 +76,14 @@ export type ReviewSettingsCompatibility = {
 export type AuthStatus = {
     status: "no_active_session";
 } | {
+    /**
+     * The active account's local database could not be opened. The host can
+     * preserve it for a later retry with `auth.logout()`, or delete it after
+     * confirmation with `auth.logout({ clearLocalData: true })`.
+     */
+    status: "local_cache_recovery_required";
+    diagnosticId: string;
+} | {
     status: "active_session";
     userId: string;
     expiresAt: UTCTimestamp;
