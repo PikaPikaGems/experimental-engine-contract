@@ -30,9 +30,11 @@ export type ReviewSummary = {
  *
  * - `enableFuzz`: both sides disable their library's fuzz and apply the shared
  *   deterministic fuzz described in ENGINE.md ("How Enable Fuzz works").
- * - Step arrays are always present; an empty array means no steps. There is
- *   no separate short-term switch: a host toggle for "learning steps" sends
- *   empty arrays when off and the user's step values when on.
+ * - Step arrays are always present; an empty array means no steps. Each array
+ *   has at most 10 entries, and each step is a whole number from 1 through
+ *   1439 minutes. There is no separate short-term switch: a host toggle for
+ *   "learning steps" sends empty arrays when off and the user's step values
+ *   when on.
  */
 export type ReviewSettings = {
   requestRetention: number;
