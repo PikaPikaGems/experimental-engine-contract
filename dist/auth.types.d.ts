@@ -1,4 +1,40 @@
 import type { PremiumEntitlement, ReviewSettings, UTCTimestamp } from "./primitives.types";
+/**
+ * Host-facing auth failures. Wire codes include `retryable` so the host can
+ * tell a wrong PIN from a retryable network/server problem. Local codes have
+ * no `retryable` field. These are the codes the engine already returns;
+ * documenting them is not an EngineAPI version bump.
+ */
+export type AuthError = {
+    code: "authentication_failed";
+    retryable: false;
+    diagnosticId?: string;
+} | {
+    code: "network_error";
+    retryable: true;
+    diagnosticId?: string;
+} | {
+    code: "rate_limited";
+    retryable: true;
+    diagnosticId?: string;
+} | {
+    code: "temporarily_unavailable";
+    retryable: true;
+    diagnosticId?: string;
+} | {
+    code: "malformed_response";
+    retryable: true;
+} | {
+    code: "session_active";
+} | {
+    code: "account_cache_full";
+} | {
+    code: "local_cache_unreadable";
+} | {
+    code: "storage_quota";
+} | {
+    code: "stale_session";
+};
 export type RequestPinInput = {
     email: string;
     website?: string;

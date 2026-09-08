@@ -21,6 +21,7 @@ export type {
 } from "./primitives.types";
 
 export type {
+  AuthError,
   AuthLogoutTransportInput,
   LogoutInput,
   RequestPinInput,
