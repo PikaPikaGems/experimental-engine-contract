@@ -1,5 +1,5 @@
 import type { ActivityApi } from "./activity.types";
-import type { LogoutInput, RequestPinInput, UserAppInfoResponse, VerifyPinInput } from "./auth.types";
+import type { AuthError, LogoutInput, RequestPinInput, UserAppInfoResponse, VerifyPinInput } from "./auth.types";
 import type { BookmarksApi } from "./bookmarks.types";
 import type { NotesApi } from "./notes.types";
 import type { AuthStatus, Result } from "./primitives.types";
@@ -34,10 +34,10 @@ export type EngineConfig = {
     onDroppedEntity?: (entity: DroppedEntity) => void;
 };
 export type AuthApi = {
-    requestPin(input: RequestPinInput): Promise<Result<void>>;
-    verifyPin(input: VerifyPinInput): Promise<Result<UserAppInfoResponse>>;
-    logout(input?: LogoutInput): Promise<Result<void>>;
-    me(): Promise<Result<UserAppInfoResponse>>;
+    requestPin(input: RequestPinInput): Promise<Result<void, AuthError>>;
+    verifyPin(input: VerifyPinInput): Promise<Result<UserAppInfoResponse, AuthError>>;
+    logout(input?: LogoutInput): Promise<Result<void, AuthError>>;
+    me(): Promise<Result<UserAppInfoResponse, AuthError>>;
     /** Signed out and local-cache recovery are ready values, not QueryStore failures. */
     watchStatus(): QueryStore<AuthStatus>;
 };
