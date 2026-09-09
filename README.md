@@ -4,5 +4,4 @@
 > This project is experimental. Use it at your own risk.
 
 If you are authorized to make changes to this repository, please read
-[`READ_THIS_FIRST.md`](https://github.com/PikaPikaGems/experimental-engine-docs/blob/main/READ_THIS_FIRST.md)
-in the `experimental-engine-docs` repository before getting started.
+`READ_THIS_FIRST.md` in the `experimental-engine-docs` repository before getting started.
