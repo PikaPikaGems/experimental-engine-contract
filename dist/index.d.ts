@@ -6,6 +6,7 @@ export type { BookmarkSaveOperation, NoteSaveOperation, OperationFailureCode, Op
 export type { CatchUpRequiredError, FailedOpsCount, OutboxStatus, RecentFailedOperation, SyncError, SyncOutcome, SyncStatus, SyncStatusBase, SyncStatusError, } from "./sync.types";
 export type { KanjiNoteView, NoteError, NotesApi, SaveNoteInput, } from "./notes.types";
 export type { BookmarkError, BookmarksApi } from "./bookmarks.types";
+export { REVIEW_PILE_ADD_WORD_MAX_UTF8_BYTES, } from "./reviews.types";
 export type { ActiveReview, CardProgress, DueCard, GradeOutcome, RatingPreview, ReviewError, ReviewPileItemView, ReviewsApi, } from "./reviews.types";
 export type { ActivityApi, ActivityDaysSummary, ActivityError, ActivityRecordSummary, ActivityWrite, AggregatedSummary, AllTimeSummary, AttemptedAt, ChallengeScore, DailySummary, DailySummaryRange, FirstAttemptsSummary, PracticeActivityEventRecord, ReadingPracticeEventRecord, SpeakingPracticeChallengeSummary, SpeakingPracticeEventRecord, SpeedKatakanaChallengeCoarsePtrSummary, SpeedKatakanaChallengeFinePtrSummary, SpeedKatakanaChallengePtrSummary, SpeedKatakanaChallengeSummary, SpeedKatakanaEventRecord, WritingPracticeEventRecord, } from "./activity.types";
 export type { AuthApi, CreateEngine, DroppedEntity, Engine, EngineAPI, EngineConfig, LogLevel, SyncApi, } from "./engine.types";

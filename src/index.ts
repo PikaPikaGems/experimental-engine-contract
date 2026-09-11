@@ -68,6 +68,9 @@ export type {
 
 export type { BookmarkError, BookmarksApi } from "./bookmarks.types";
 
+export {
+  REVIEW_PILE_ADD_WORD_MAX_UTF8_BYTES,
+} from "./reviews.types";
 export type {
   ActiveReview,
   CardProgress,
