@@ -13,6 +13,9 @@ import type {
 } from "./primitives.types";
 import type { QueryStore } from "./query.types";
 
+/** Fixed UTF-8 byte cap for `review-pile-add.word`. Not a `me()` policy field. */
+export const REVIEW_PILE_ADD_WORD_MAX_UTF8_BYTES = 1024;
+
 export type ReviewError =
   | StudyError
   | { code: "pile_item_exists"; kanji: Kanji; canonicalWord: string }
@@ -20,7 +23,8 @@ export type ReviewError =
   | { code: "review_handle_consumed" }
   | { code: "invalid_settings"; field: keyof ReviewSettings; reason: string }
   | { code: "stale_version" }
-  | { code: "schema_version_mismatch" };
+  | { code: "schema_version_mismatch" }
+  | { code: "validation_failed"; reason: "length_exceeded" };
 
 export type CardProgress = {
   firstReviewedAt?: UTCTimestamp;

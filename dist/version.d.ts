@@ -1,3 +1,3 @@
 /** Host↔engine JS API version. Bump on breaking EngineAPI shape changes. */
-export declare const ENGINE_API_VERSION = 7;
+export declare const ENGINE_API_VERSION = 8;
 //# sourceMappingURL=version.d.ts.map
