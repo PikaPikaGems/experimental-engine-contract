@@ -27,8 +27,6 @@ export type AuthError = {
 } | {
     code: "session_active";
 } | {
-    code: "account_cache_full";
-} | {
     code: "local_cache_unreadable";
 } | {
     code: "storage_quota";
@@ -44,7 +42,7 @@ export type VerifyPinInput = {
     pin: string;
 };
 /** Host `auth.logout` input. `clearLocalData` is engine-local only.
- * Default logout discards the outbox and keeps the canonical cache. */
+ * Default logout preserves pending work and cache until expiry or LRU eviction. */
 export type LogoutInput = {
     clearLocalData?: boolean;
     allDevices?: boolean;
