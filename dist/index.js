@@ -1,5 +1,5 @@
 // src/version.ts
-var ENGINE_API_VERSION = 8;
+var ENGINE_API_VERSION = 9;
 
 // src/reviews.types.ts
 var REVIEW_PILE_ADD_WORD_MAX_UTF8_BYTES = 1024;
