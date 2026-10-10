@@ -56,6 +56,7 @@ export type RecentFailedOperation = {
     subject?: {
         kanji?: Kanji;
         cardType?: CardType;
+        activityType?: string;
         challengeId?: number;
     };
     /** Outbox snapshot so a permanently rejected note/word can be copied. */
