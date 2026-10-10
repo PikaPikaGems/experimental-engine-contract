@@ -43,8 +43,9 @@ export type SpeedKatakanaOperation = OperationMetadata & {
     cpmVal: number;
     pointerType: "fine" | "coarse";
 };
-export type SpeakingPracticeOperation = OperationMetadata & {
-    type: "speaking_practice_session_completed";
+export type GenericChallengeOperation = OperationMetadata & {
+    type: "generic_challenge_completed";
+    activityType: string;
     challengeId: number;
     startedAt: UnixMs;
     endedAt: UnixMs;
@@ -63,6 +64,6 @@ export type WritingPracticeOperation = OperationMetadata & {
     correctCount: number;
     attemptedCount: number;
 };
-export type SyncOperation = NoteSaveOperation | BookmarkSaveOperation | ReviewSettingsUpdateOperation | ReviewPileAddOperation | ReviewPileRemoveOperation | ReviewGradeOperation | SpeedKatakanaOperation | SpeakingPracticeOperation | ReadingPracticeOperation | WritingPracticeOperation;
+export type SyncOperation = NoteSaveOperation | BookmarkSaveOperation | ReviewSettingsUpdateOperation | ReviewPileAddOperation | ReviewPileRemoveOperation | ReviewGradeOperation | SpeedKatakanaOperation | GenericChallengeOperation | ReadingPracticeOperation | WritingPracticeOperation;
 export type OperationFailureCode = "validation_failed" | "premium_lapsed" | "stale_session" | "schema_version_mismatch" | "unknown_operation_error";
 //# sourceMappingURL=operations.types.d.ts.map

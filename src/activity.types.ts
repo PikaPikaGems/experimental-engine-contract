@@ -26,8 +26,9 @@ export type SpeedKatakanaEventRecord = EventRecordTimeRange & {
   pointerType: "fine" | "coarse";
 };
 
-export type SpeakingPracticeEventRecord = EventRecordTimeRange & {
-  type: "speaking_practice_session_completed";
+export type GenericChallengeEventRecord = EventRecordTimeRange & {
+  type: "generic_challenge_completed";
+  activityType: string;
   challengeId: number;
 };
 
@@ -45,14 +46,14 @@ export type WritingPracticeEventRecord = EventRecordTimeRange & {
 
 export type PracticeActivityEventRecord =
   | SpeedKatakanaEventRecord
-  | SpeakingPracticeEventRecord
+  | GenericChallengeEventRecord
   | ReadingPracticeEventRecord
   | WritingPracticeEventRecord;
 
 export type ActivityRecordSummary = {
+  genericChallenges: Partial<Record<string, number>>;
   practice: {
     speedKatakana: number;
-    speaking: number;
     reading: number;
     writing: number;
   };
@@ -69,10 +70,10 @@ export type DailySummary = ActivityRecordSummary & {
 };
 
 export type ActivityDaysSummary = {
+  genericChallenges: Partial<Record<string, TotalDays>>;
   totalDaysActive: TotalDays;
   practice: {
     speedKatakana: TotalDays;
-    speaking: TotalDays;
     reading: TotalDays;
     writing: TotalDays;
   };
@@ -92,10 +93,10 @@ export type AggregatedSummary = {
 };
 
 export type FirstAttemptsSummary = {
+  genericChallenges: Partial<Record<string, LocalDate>>;
   cakeDay?: LocalDate;
   practice: {
     speedKatakana?: LocalDate;
-    speaking?: LocalDate;
     reading?: LocalDate;
     writing?: LocalDate;
   };
@@ -147,8 +148,8 @@ export type SpeedKatakanaChallengeSummary = {
   finePtrSummary?: SpeedKatakanaChallengeFinePtrSummary;
 };
 
-export type SpeakingPracticeChallengeSummary = {
-  activityType: "speaking_practice";
+export type GenericChallengeSummary = {
+  activityType: string;
   challengeId: number;
   attemptCount: number;
   lastAttemptedAt: AttemptedAt;
@@ -163,13 +164,16 @@ export type ActivityApi = {
   watchDailySummaries(input: DailySummaryRange): QueryStore<DailySummary[]>;
   watchAllTime(): QueryStore<AllTimeSummary>;
   watchSpeedKatakanaChallenge(
-    challengeId: number
+    challengeId: number,
   ): QueryStore<SpeedKatakanaChallengeSummary | null>;
-  watchSpeakingChallenge(
-    challengeId: number
-  ): QueryStore<SpeakingPracticeChallengeSummary | null>;
+  watchGenericChallenge(
+    activityType: string,
+    challengeId: number,
+  ): QueryStore<GenericChallengeSummary | null>;
   watchAllSpeedKatakanaChallenges(): QueryStore<
     SpeedKatakanaChallengeSummary[]
   >;
-  watchAllSpeakingChallenges(): QueryStore<SpeakingPracticeChallengeSummary[]>;
+  watchAllGenericChallenges(
+    activityType: string,
+  ): QueryStore<GenericChallengeSummary[]>;
 };

@@ -59,8 +59,9 @@ export type SpeedKatakanaOperation = OperationMetadata & {
   pointerType: "fine" | "coarse";
 };
 
-export type SpeakingPracticeOperation = OperationMetadata & {
-  type: "speaking_practice_session_completed";
+export type GenericChallengeOperation = OperationMetadata & {
+  type: "generic_challenge_completed";
+  activityType: string;
   challengeId: number;
   startedAt: UnixMs;
   endedAt: UnixMs;
@@ -90,7 +91,7 @@ export type SyncOperation =
   | ReviewPileRemoveOperation
   | ReviewGradeOperation
   | SpeedKatakanaOperation
-  | SpeakingPracticeOperation
+  | GenericChallengeOperation
   | ReadingPracticeOperation
   | WritingPracticeOperation;
 
