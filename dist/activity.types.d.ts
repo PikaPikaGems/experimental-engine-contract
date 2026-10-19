@@ -104,7 +104,6 @@ export type SpeedKatakanaChallengePtrSummary = {
     best: {
         accuracy: ChallengeScore;
         cpm: ChallengeScore;
-        cpmOverAcc70?: ChallengeScore;
     };
 };
 export type SpeedKatakanaChallengeCoarsePtrSummary = {
