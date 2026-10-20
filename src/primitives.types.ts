@@ -51,7 +51,7 @@ export type StudyError =
   | { code: "outbox_stale" }
   | { code: "stale_session" }
   | { code: "no_active_session" }
-  | { code: "ENTITLEMENT_EXPIRED" }
+  | { code: "entitlement_expired" }
   | { code: "cache_rebuilding" };
 
 /** Standing write-gate for `auth.watchStatus()`. */
@@ -62,7 +62,7 @@ export type WriteAccess =
       reason:
         | "outbox_full"
         | "outbox_stale"
-        | "ENTITLEMENT_EXPIRED"
+        | "entitlement_expired"
         | "storage_quota"
         | "cache_rebuilding";
     };
