@@ -97,7 +97,7 @@ export type SyncOperation =
 
 export type OperationFailureCode =
   | "validation_failed"
-  | "premium_lapsed"
+  | "entitlement_expired"
   | "stale_session"
   | "schema_version_mismatch"
   | "unknown_operation_error";

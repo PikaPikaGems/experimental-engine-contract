@@ -65,5 +65,5 @@ export type WritingPracticeOperation = OperationMetadata & {
     attemptedCount: number;
 };
 export type SyncOperation = NoteSaveOperation | BookmarkSaveOperation | ReviewSettingsUpdateOperation | ReviewPileAddOperation | ReviewPileRemoveOperation | ReviewGradeOperation | SpeedKatakanaOperation | GenericChallengeOperation | ReadingPracticeOperation | WritingPracticeOperation;
-export type OperationFailureCode = "validation_failed" | "premium_lapsed" | "stale_session" | "schema_version_mismatch" | "unknown_operation_error";
+export type OperationFailureCode = "validation_failed" | "entitlement_expired" | "stale_session" | "schema_version_mismatch" | "unknown_operation_error";
 //# sourceMappingURL=operations.types.d.ts.map
