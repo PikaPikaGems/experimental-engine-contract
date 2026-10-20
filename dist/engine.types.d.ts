@@ -54,7 +54,8 @@ export type SyncApi = {
     dismissFailedOperations(operationIds: readonly string[]): Promise<void>;
 };
 export type EngineAPI = {
-    version: string;
+    /** Engine package release string for diagnostics, not API compatibility. */
+    releaseVersion: string;
     bookmarks: BookmarksApi;
     notes: NotesApi;
     reviews: ReviewsApi;
@@ -66,7 +67,6 @@ export type Engine = {
     type: "unavailable";
 } | {
     type: "available";
-    version: string;
     engine: EngineAPI;
 };
 export type CreateEngine = (config: EngineConfig) => Engine;
