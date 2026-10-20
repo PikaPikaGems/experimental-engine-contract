@@ -59,7 +59,7 @@ export type StudyError = {
 } | {
     code: "no_active_session";
 } | {
-    code: "premium_lapsed";
+    code: "ENTITLEMENT_EXPIRED";
 } | {
     code: "cache_rebuilding";
 };
@@ -68,7 +68,7 @@ export type WriteAccess = {
     allowed: true;
 } | {
     allowed: false;
-    reason: "outbox_full" | "outbox_stale" | "premium_lapsed" | "storage_quota" | "cache_rebuilding";
+    reason: "outbox_full" | "outbox_stale" | "ENTITLEMENT_EXPIRED" | "storage_quota" | "cache_rebuilding";
 };
 export type ReviewSettingsCompatibility = {
     status: "compatible";
