@@ -50,20 +50,6 @@ export type GenericChallengeOperation = OperationMetadata & {
     startedAt: UnixMs;
     endedAt: UnixMs;
 };
-export type ReadingPracticeOperation = OperationMetadata & {
-    type: "reading_practice_round_completed";
-    startedAt: UnixMs;
-    endedAt: UnixMs;
-    correctCount: number;
-    attemptedCount: number;
-};
-export type WritingPracticeOperation = OperationMetadata & {
-    type: "writing_practice_round_completed";
-    startedAt: UnixMs;
-    endedAt: UnixMs;
-    correctCount: number;
-    attemptedCount: number;
-};
-export type SyncOperation = NoteSaveOperation | BookmarkSaveOperation | ReviewSettingsUpdateOperation | ReviewPileAddOperation | ReviewPileRemoveOperation | ReviewGradeOperation | SpeedKatakanaOperation | GenericChallengeOperation | ReadingPracticeOperation | WritingPracticeOperation;
+export type SyncOperation = NoteSaveOperation | BookmarkSaveOperation | ReviewSettingsUpdateOperation | ReviewPileAddOperation | ReviewPileRemoveOperation | ReviewGradeOperation | SpeedKatakanaOperation | GenericChallengeOperation;
 export type OperationFailureCode = "validation_failed" | "entitlement_expired" | "stale_session" | "schema_version_mismatch" | "unknown_operation_error";
 //# sourceMappingURL=operations.types.d.ts.map

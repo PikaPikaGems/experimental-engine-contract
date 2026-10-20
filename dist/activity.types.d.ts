@@ -20,23 +20,11 @@ export type GenericChallengeEventRecord = EventRecordTimeRange & {
     activityType: string;
     challengeId: number;
 };
-export type ReadingPracticeEventRecord = EventRecordTimeRange & {
-    type: "reading_practice_round_completed";
-    correctCount: number;
-    attemptedCount: number;
-};
-export type WritingPracticeEventRecord = EventRecordTimeRange & {
-    type: "writing_practice_round_completed";
-    correctCount: number;
-    attemptedCount: number;
-};
-export type PracticeActivityEventRecord = SpeedKatakanaEventRecord | GenericChallengeEventRecord | ReadingPracticeEventRecord | WritingPracticeEventRecord;
+export type PracticeActivityEventRecord = SpeedKatakanaEventRecord | GenericChallengeEventRecord;
 export type ActivityRecordSummary = {
     genericChallenges: Partial<Record<string, number>>;
     practice: {
         speedKatakana: number;
-        reading: number;
-        writing: number;
     };
     reviews: {
         reading: ReviewSummary;
@@ -53,8 +41,6 @@ export type ActivityDaysSummary = {
     totalDaysActive: TotalDays;
     practice: {
         speedKatakana: TotalDays;
-        reading: TotalDays;
-        writing: TotalDays;
     };
     reviews: {
         reading: TotalDays;
@@ -76,8 +62,6 @@ export type FirstAttemptsSummary = {
     cakeDay?: LocalDate;
     practice: {
         speedKatakana?: LocalDate;
-        reading?: LocalDate;
-        writing?: LocalDate;
     };
     review: {
         writing?: LocalDate;

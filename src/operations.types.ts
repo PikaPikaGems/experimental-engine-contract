@@ -67,22 +67,6 @@ export type GenericChallengeOperation = OperationMetadata & {
   endedAt: UnixMs;
 };
 
-export type ReadingPracticeOperation = OperationMetadata & {
-  type: "reading_practice_round_completed";
-  startedAt: UnixMs;
-  endedAt: UnixMs;
-  correctCount: number;
-  attemptedCount: number;
-};
-
-export type WritingPracticeOperation = OperationMetadata & {
-  type: "writing_practice_round_completed";
-  startedAt: UnixMs;
-  endedAt: UnixMs;
-  correctCount: number;
-  attemptedCount: number;
-};
-
 export type SyncOperation =
   | NoteSaveOperation
   | BookmarkSaveOperation
@@ -91,9 +75,7 @@ export type SyncOperation =
   | ReviewPileRemoveOperation
   | ReviewGradeOperation
   | SpeedKatakanaOperation
-  | GenericChallengeOperation
-  | ReadingPracticeOperation
-  | WritingPracticeOperation;
+  | GenericChallengeOperation;
 
 export type OperationFailureCode =
   | "validation_failed"
