@@ -36,7 +36,6 @@ export type {
   NoteSaveOperation,
   OperationFailureCode,
   OperationMetadata,
-  ReadingPracticeOperation,
   ReviewGradeOperation,
   ReviewPileAddOperation,
   ReviewPileRemoveOperation,
@@ -44,7 +43,6 @@ export type {
   GenericChallengeOperation,
   SpeedKatakanaOperation,
   SyncOperation,
-  WritingPracticeOperation,
 } from "./operations.types";
 
 export type {
@@ -96,7 +94,6 @@ export type {
   DailySummaryRange,
   FirstAttemptsSummary,
   PracticeActivityEventRecord,
-  ReadingPracticeEventRecord,
   GenericChallengeSummary,
   GenericChallengeEventRecord,
   SpeedKatakanaChallengeCoarsePtrSummary,
@@ -104,7 +101,6 @@ export type {
   SpeedKatakanaChallengePtrSummary,
   SpeedKatakanaChallengeSummary,
   SpeedKatakanaEventRecord,
-  WritingPracticeEventRecord,
 } from "./activity.types";
 
 export type {
