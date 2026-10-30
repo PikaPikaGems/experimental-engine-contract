@@ -18,13 +18,18 @@ export const REVIEW_PILE_ADD_WORD_MAX_UTF8_BYTES = 1024;
 
 export type ReviewError =
   | StudyError
-  | { code: "pile_item_exists"; kanji: Kanji; canonicalWord: string }
+  | {
+      code: "pile_item_exists";
+      kanji: Kanji;
+      canonicalWord: string;
+      canonicalSecondaryWord?: string;
+    }
   | { code: "review_handle_expired" }
   | { code: "review_handle_consumed" }
   | { code: "invalid_settings"; field: keyof ReviewSettings; reason: string }
   | { code: "stale_version" }
   | { code: "schema_version_mismatch" }
-  | { code: "validation_failed"; reason: "length_exceeded" };
+  | { code: "validation_failed"; reason: "length_exceeded" | "duplicate_word" };
 
 export type CardProgress = {
   firstReviewedAt?: UTCTimestamp;
@@ -48,6 +53,7 @@ export type ReviewPileItemView = {
   word: string;
   reading: CardProgress;
   writing: CardProgress;
+  secondary?: { word: string; reading: CardProgress };
   addedAt: UTCTimestamp;
   addedAtTzName: IanaTimeZone;
 };
@@ -83,7 +89,7 @@ export type ReviewsApi = {
   settings: {
     watchCurrent(): QueryStore<ReviewSettings>;
     update(
-      settings: ReviewSettings
+      settings: ReviewSettings,
     ): Promise<Result<ReviewSettings, ReviewError>>;
     defaultSettings: ReviewSettings;
   };
@@ -91,6 +97,7 @@ export type ReviewsApi = {
     add(input: {
       kanji: Kanji;
       word: string;
+      secondaryWord?: string; // fixed for this lifecycle; creates a secondaryReading card
     }): Promise<Result<ReviewPileItemView, ReviewError>>;
     remove(kanji: Kanji): Promise<Result<void, ReviewError>>;
     watch(kanji: Kanji): QueryStore<ReviewPileItemView | null>;

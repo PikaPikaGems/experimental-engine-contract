@@ -10,7 +10,7 @@ export type UTCTimestamp = string;
 export type IanaTimeZone = string;
 export type TotalDays = number;
 export type Kanji = string;
-export type CardType = "reading" | "writing";
+export type CardType = "reading" | "writing" | "secondaryReading";
 export type FsrsRating = "again" | "hard" | "good" | "easy";
 export type FsrsLearningState = "new" | "learning" | "review" | "relearning";
 

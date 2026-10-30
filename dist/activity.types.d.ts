@@ -28,6 +28,7 @@ export type ActivityRecordSummary = {
     };
     reviews: {
         reading: ReviewSummary;
+        secondaryReading: ReviewSummary;
         writing: ReviewSummary;
         newItems: number;
     };
@@ -43,6 +44,7 @@ export type ActivityDaysSummary = {
         speedKatakana: TotalDays;
     };
     reviews: {
+        secondaryReading: TotalDays;
         reading: TotalDays;
         writing: TotalDays;
         newItems: TotalDays;
@@ -66,6 +68,7 @@ export type FirstAttemptsSummary = {
     review: {
         writing?: LocalDate;
         reading?: LocalDate;
+        secondaryReading?: LocalDate;
     };
 };
 export type AllTimeSummary = {
