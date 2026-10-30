@@ -33,8 +33,7 @@ export type GenericChallengeEventRecord = EventRecordTimeRange & {
 };
 
 export type PracticeActivityEventRecord =
-  | SpeedKatakanaEventRecord
-  | GenericChallengeEventRecord;
+  SpeedKatakanaEventRecord | GenericChallengeEventRecord;
 
 export type ActivityRecordSummary = {
   genericChallenges: Partial<Record<string, number>>;
@@ -43,6 +42,7 @@ export type ActivityRecordSummary = {
   };
   reviews: {
     reading: ReviewSummary;
+    secondaryReading: ReviewSummary;
     writing: ReviewSummary;
     newItems: number;
   };
@@ -60,6 +60,7 @@ export type ActivityDaysSummary = {
     speedKatakana: TotalDays;
   };
   reviews: {
+    secondaryReading: TotalDays; // days with secondary-reading reviews
     reading: TotalDays;
     writing: TotalDays;
     newItems: TotalDays;
@@ -83,6 +84,7 @@ export type FirstAttemptsSummary = {
   review: {
     writing?: LocalDate;
     reading?: LocalDate;
+    secondaryReading?: LocalDate;
   };
 };
 

@@ -23,6 +23,7 @@ export type ReviewPileAddOperation = OperationMetadata & {
     type: "review-pile-add";
     kanji: Kanji;
     word: string;
+    secondaryWord?: string;
 };
 export type ReviewPileRemoveOperation = OperationMetadata & {
     type: "review-pile-remove";

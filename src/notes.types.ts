@@ -1,4 +1,9 @@
-import type { Kanji, Result, StudyError, UTCTimestamp } from "./primitives.types";
+import type {
+  Kanji,
+  Result,
+  StudyError,
+  UTCTimestamp,
+} from "./primitives.types";
 import type { QueryStore } from "./query.types";
 
 export type NoteError =

@@ -6,6 +6,7 @@ export type ReviewError = StudyError | {
     code: "pile_item_exists";
     kanji: Kanji;
     canonicalWord: string;
+    canonicalSecondaryWord?: string;
 } | {
     code: "review_handle_expired";
 } | {
@@ -20,7 +21,7 @@ export type ReviewError = StudyError | {
     code: "schema_version_mismatch";
 } | {
     code: "validation_failed";
-    reason: "length_exceeded";
+    reason: "length_exceeded" | "duplicate_word";
 };
 export type CardProgress = {
     firstReviewedAt?: UTCTimestamp;
@@ -43,6 +44,10 @@ export type ReviewPileItemView = {
     word: string;
     reading: CardProgress;
     writing: CardProgress;
+    secondary?: {
+        word: string;
+        reading: CardProgress;
+    };
     addedAt: UTCTimestamp;
     addedAtTzName: IanaTimeZone;
 };
@@ -79,6 +84,7 @@ export type ReviewsApi = {
         add(input: {
             kanji: Kanji;
             word: string;
+            secondaryWord?: string;
         }): Promise<Result<ReviewPileItemView, ReviewError>>;
         remove(kanji: Kanji): Promise<Result<void, ReviewError>>;
         watch(kanji: Kanji): QueryStore<ReviewPileItemView | null>;

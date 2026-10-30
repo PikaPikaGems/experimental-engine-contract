@@ -53,7 +53,7 @@ export type EngineConfig = {
 export type AuthApi = {
   requestPin(input: RequestPinInput): Promise<Result<void, AuthError>>;
   verifyPin(
-    input: VerifyPinInput
+    input: VerifyPinInput,
   ): Promise<Result<UserAppInfoResponse, AuthError>>;
   logout(input?: LogoutInput): Promise<Result<void, AuthError>>;
   me(): Promise<Result<UserAppInfoResponse, AuthError>>;
@@ -86,7 +86,6 @@ export type EngineAPI = {
 };
 
 export type Engine =
-  | { type: "unavailable" }
-  | { type: "available"; engine: EngineAPI };
+  { type: "unavailable" } | { type: "available"; engine: EngineAPI };
 
 export type CreateEngine = (config: EngineConfig) => Engine;
