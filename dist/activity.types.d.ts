@@ -76,10 +76,9 @@ export type AllTimeSummary = {
     daysActive: ActivityDaysSummary;
     firstAttempts: FirstAttemptsSummary;
 };
-export type AttemptedAt = LocalDate;
 export type ChallengeScore = {
     value: number;
-    achievedAt: AttemptedAt;
+    achieveDate: LocalDate;
 };
 export type SpeedKatakanaChallengePtrSummary = {
     attemptCount: number;

@@ -88,7 +88,6 @@ export type {
   ActivityWrite,
   AggregatedSummary,
   AllTimeSummary,
-  AttemptedAt,
   ChallengeScore,
   DailySummary,
   DailySummaryRange,
