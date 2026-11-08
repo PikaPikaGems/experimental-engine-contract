@@ -84,7 +84,7 @@ export type ChallengeScore = {
 export type SpeedKatakanaChallengePtrSummary = {
     attemptCount: number;
     latest: {
-        attemptedAt: AttemptedAt;
+        attemptDate: LocalDate;
         accuracyVal: number;
         cpmVal: number;
     };
@@ -109,7 +109,7 @@ export type GenericChallengeSummary = {
     activityType: string;
     challengeId: number;
     attemptCount: number;
-    lastAttemptedAt: AttemptedAt;
+    lastAttemptDate: LocalDate;
 };
 export type ActivityWrite = {
     operationId: string;
